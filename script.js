@@ -1,87 +1,198 @@
-$(document).ready(function () {
-    $(window).scroll(function () {
-        // sticky navbar on scroll script
-        if (this.scrollY > 20) {
-            $('.navbar').addClass("sticky");
-        } else {
-            $('.navbar').removeClass("sticky");
-        }
+'use strict';
 
-        // scroll-up button show/hide script
-        if (this.scrollY > 500) {
-            $('.scroll-up-btn').addClass("show");
-        } else {
-            $('.scroll-up-btn').removeClass("show");
-        }
-    });
+const navbar = document.querySelector('.navbar');
+const menu = document.querySelector('.menu');
+const menuToggle = document.querySelector('.menu-toggle');
+const menuIcon = menuToggle.querySelector('i');
+const navLinks = [...document.querySelectorAll('.nav-link')];
+const sections = [...document.querySelectorAll('main section[id]')];
+const scrollUpBtn = document.querySelector('.scroll-up-btn');
+const typingElement = document.querySelector('.typing');
+const yearElement = document.getElementById('year');
 
-    // slide-up script
-    $('.scroll-up-btn').click(function () {
-        $('html').animate({ scrollTop: 0 });
-        // removing smooth scroll on slide-up button click
-        $('html').css("scrollBehavior", "auto");
-    });
+/* Current year */
+yearElement.textContent = new Date().getFullYear();
 
-    $('.navbar .menu li a').click(function () {
-        // applying again smooth scroll on menu items click
-        $('html').css("scrollBehavior", "smooth");
-    });
+/* Mobile menu */
+function closeMenu() {
+    menu.classList.remove('active');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Open navigation menu');
+    menuIcon.classList.remove('fa-times');
+    menuIcon.classList.add('fa-bars');
+}
 
-    // toggle menu/navbar script
-    $('.menu-btn').click(function () {
-        $('.navbar .menu').toggleClass("active");
-        $('.menu-btn i').toggleClass("active");
-    });
-    
-    // Get all the links in the navbar
-    const links = document.querySelectorAll('.navbar .menu li a');
+menuToggle.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('active');
 
-    // Loop through the links and add an event listener to each one
-    links.forEach(link => {
-        link.addEventListener('click', function () {
-            // Remove the active class from all links
-            links.forEach(link => link.classList.remove('active'));
-            // Add the active class to the clicked link
-            this.classList.add('active');
-        });
-    });
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
 
+    menuToggle.setAttribute(
+        'aria-label',
+        isOpen ? 'Close navigation menu' : 'Open navigation menu'
+    );
 
-    // typing text animation script
-    var typed = new Typed(".typing", {
-        strings: ["Student !", "Developer !", "Sports enthusiast !"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-    });
-
-    // var typed = new Typed(".typing-2", {
-    //     strings: ["Student", "Developer", "Sports enthusiast"],
-    //     typeSpeed: 100,
-    //     backSpeed: 60,
-    //     loop: true
-    // });
-
-    // owl carousel script
-    $('.carousel').owlCarousel({
-        margin: 20,
-        loop: true,
-        autoplay: true,
-        autoplayTimeOut: 2000,
-        autoplayHoverPause: true,
-        responsive: {
-            0: {
-                items: 1,
-                nav: false
-            },
-            600: {
-                items: 2,
-                nav: false
-            },
-            1000: {
-                items: 3,
-                nav: false
-            }
-        }
-    });
+    menuIcon.classList.toggle('fa-bars', !isOpen);
+    menuIcon.classList.toggle('fa-times', isOpen);
 });
+
+navLinks.forEach((link) => {
+    link.addEventListener('click', closeMenu);
+});
+
+/* Sticky navbar, scroll-to-top button and active section */
+function updateOnScroll() {
+    const scrollY = window.scrollY;
+
+    navbar.classList.toggle('sticky', scrollY > 25);
+    scrollUpBtn.classList.toggle('show', scrollY > 450);
+
+    const navbarOffset = navbar.offsetHeight + 45;
+
+    let currentSection = 'home';
+
+    sections.forEach((section) => {
+        const sectionTop = section.offsetTop - navbarOffset;
+
+        if (scrollY >= sectionTop) {
+            currentSection = section.id;
+        }
+    });
+
+    navLinks.forEach((link) => {
+        link.classList.toggle(
+            'active',
+            link.getAttribute('href') === `#${currentSection}`
+        );
+    });
+}
+
+window.addEventListener(
+    'scroll',
+    updateOnScroll,
+    { passive: true }
+);
+
+window.addEventListener('resize', () => {
+
+    if (window.innerWidth > 1000) {
+        closeMenu();
+    }
+
+    updateOnScroll();
+});
+
+updateOnScroll();
+
+/* Scroll to top */
+scrollUpBtn.addEventListener('click', () => {
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
+});
+
+/* Typewriter animation */
+
+const roles = [
+    'Software Developer',
+    'Full-Stack Developer',
+    'Java Developer'
+];
+
+let roleIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeRole() {
+
+    if (!typingElement) return;
+
+    const currentRole = roles[roleIndex];
+
+    if (deleting) {
+        charIndex -= 1;
+    } else {
+        charIndex += 1;
+    }
+
+    typingElement.textContent =
+        currentRole.slice(0, charIndex);
+
+    let delay = deleting ? 45 : 85;
+
+    if (
+        !deleting &&
+        charIndex === currentRole.length
+    ) {
+
+        deleting = true;
+
+        delay = 1500;
+
+    } else if (
+        deleting &&
+        charIndex === 0
+    ) {
+
+        deleting = false;
+
+        roleIndex =
+            (roleIndex + 1) % roles.length;
+
+        delay = 350;
+    }
+
+    window.setTimeout(
+        typeRole,
+        delay
+    );
+}
+
+typeRole();
+
+/* Reveal animation */
+
+const revealElements =
+    document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window) {
+
+    const revealObserver =
+        new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target
+                            .classList.add('visible');
+
+                        observer
+                            .unobserve(entry.target);
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+    revealElements.forEach(
+        (element) =>
+            revealObserver.observe(element)
+    );
+
+} else {
+
+    revealElements.forEach(
+        (element) =>
+            element.classList.add('visible')
+    );
+
+}
