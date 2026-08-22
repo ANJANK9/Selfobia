@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Anjan Kumar - Developer portfolio showcasing projects, skills and contact information.">
+    <meta name="description" content="Anjan Kumar - Full-Stack Developer portfolio showcasing projects, skills and contact information.">
+    <meta name="keywords" content="Anjan Kumar, Full-Stack Developer, Java Developer, Web Developer, HTML, CSS, JavaScript, React, Java, Python, MySQL">
+    <meta name="author" content="Anjan Kumar">
     <meta name="theme-color" content="#0b1120">
-    <title>Anjan Kumar | Developer Portfolio</title>
+    <meta property="og:title" content="Anjan Kumar | Full-Stack Developer">
+    <meta property="og:description" content="Developer portfolio showcasing projects, skills and contact information.">
+    <meta property="og:type" content="website">
+    <title>Anjan Kumar | Full-Stack Developer</title>
 
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,27 +26,41 @@
 
     <nav class="navbar" aria-label="Primary navigation">
         <div class="max-width nav-inner">
-            <a class="logo" href="#home">Anjan<span>.dev</span></a>
+            <a class="logo" href="#home" aria-label="Go to home">Anjan<span>.dev</span></a>
 
             <ul class="menu">
                 <li><a class="nav-link active" href="#home">Home</a></li>
                 <li><a class="nav-link" href="#about">About</a></li>
+                <li><a class="nav-link" href="#journey">Journey</a></li>
                 <li><a class="nav-link" href="#projects">Projects</a></li>
                 <li><a class="nav-link" href="#skills">Skills</a></li>
                 <li><a class="nav-link" href="#contact">Contact</a></li>
             </ul>
 
-            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="nav-actions">
+                <button class="theme-toggle" type="button" aria-label="Enable dark mode" aria-pressed="false" title="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
     <main>
         <!-- Hero -->
         <section class="home" id="home">
+            <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+            <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+
             <div class="max-width">
                 <div class="home-content reveal">
+                    <div class="availability-badge">
+                        <span class="availability-dot" aria-hidden="true"></span>
+                        Open to developer opportunities
+                    </div>
+
                     <p class="eyebrow">HELLO, I'M</p>
                     <h1>Anjan Kumar</h1>
                     <h2>I'm a <span class="typing" aria-live="polite"></span><span class="typing-cursor" aria-hidden="true">|</span></h2>
@@ -50,18 +70,19 @@
                     </p>
 
                     <div class="hero-actions">
-                        <a class="btn btn-primary" href="#projects">View Projects</a>
-                        <a class="btn btn-secondary" href="#contact">Contact Me</a>
+                        <a class="btn btn-primary" href="#projects"><i class="fas fa-code"></i> View Projects</a>
+                        <a class="btn btn-secondary resume-btn" href="resume.pdf" download><i class="fas fa-file-download"></i> Download Resume</a>
+                        <a class="btn btn-ghost" href="#contact"><i class="fas fa-paper-plane"></i> Contact Me</a>
                     </div>
 
                     <div class="social-links hero-socials" aria-label="Social links">
-                        <a href="https://github.com/ANJANK9" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <a href="https://github.com/ANJANK9" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/anjan-kumar-858480199/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/anjan-kumar-858480199/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="mailto:anjankumar00025@gmail.com" aria-label="Email">
+                        <a href="mailto:anjankumar00025@gmail.com" aria-label="Email" title="Email">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -75,6 +96,7 @@
                 <div class="section-heading reveal">
                     <p class="section-kicker">WHO I AM</p>
                     <h2>About Me</h2>
+                    <p class="section-description">A quick look at what I enjoy building and how I approach development.</p>
                 </div>
 
                 <div class="about-content">
@@ -108,8 +130,48 @@
                             </div>
                         </div>
 
-                        <a class="btn btn-primary" href="#contact">Let's Connect</a>
+                        <a class="btn btn-primary" href="#contact"><i class="fas fa-handshake"></i> Let's Connect</a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey -->
+        <section class="journey" id="journey">
+            <div class="max-width">
+                <div class="section-heading reveal">
+                    <p class="section-kicker">MY JOURNEY</p>
+                    <h2>Learning &amp; Building</h2>
+                    <p class="section-description">A simple snapshot of the areas that have shaped my developer journey.</p>
+                </div>
+
+                <div class="timeline">
+                    <article class="timeline-item reveal">
+                        <div class="timeline-marker"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-label">EDUCATION</span>
+                            <h3>Computer Science &amp; Engineering</h3>
+                            <p>Built a strong foundation in programming, databases, software development and problem solving through academic learning and practical projects.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item reveal">
+                        <div class="timeline-marker"><i class="fas fa-laptop-code"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-label">DEVELOPMENT</span>
+                            <h3>Full-Stack Learning</h3>
+                            <p>Focused on modern web development using HTML, CSS, JavaScript, React and backend-oriented programming concepts.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item reveal">
+                        <div class="timeline-marker"><i class="fas fa-rocket"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-label">NOW</span>
+                            <h3>Building Projects</h3>
+                            <p>Continuing to create practical projects, improve code quality and strengthen the skills needed for professional software development.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -125,52 +187,66 @@
 
                 <div class="project-grid">
                     <article class="project-card reveal">
-                        <div class="project-top">
-                            <div class="project-icon"><i class="fab fa-java"></i></div>
-                            <span class="project-number">01</span>
+                        <div class="project-preview preview-java" aria-hidden="true">
+                            <i class="fab fa-java"></i>
+                            <span>Java + MySQL</span>
                         </div>
-                        <h3>Apna Hostel Management System</h3>
-                        <p>
-                            A management application designed to organize hostel-related information and simplify common administrative workflows.
-                        </p>
-                        <div class="tech-tags">
-                            <span>Java</span>
-                            <span>MySQL</span>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <div class="project-top">
-                            <div class="project-icon"><i class="fab fa-python"></i></div>
-                            <span class="project-number">02</span>
-                        </div>
-                        <h3>Rock Paper Scissors</h3>
-                        <p>
-                            A simple interactive game that demonstrates core programming concepts such as conditions, random choices and user interaction.
-                        </p>
-                        <div class="tech-tags">
-                            <span>Python</span>
-                            <span>Logic</span>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <div class="project-icon"><i class="fab fa-java"></i></div>
+                                <span class="project-number">01</span>
+                            </div>
+                            <h3>Apna Hostel Management System</h3>
+                            <p>A management application designed to organize hostel-related information and simplify common administrative workflows.</p>
+                            <div class="tech-tags">
+                                <span>Java</span>
+                                <span>MySQL</span>
+                            </div>
                         </div>
                     </article>
 
                     <article class="project-card reveal">
-                        <div class="project-top">
-                            <div class="project-icon"><i class="fas fa-code"></i></div>
-                            <span class="project-number">03</span>
+                        <div class="project-preview preview-python" aria-hidden="true">
+                            <i class="fab fa-python"></i>
+                            <span>Python Logic</span>
                         </div>
-                        <h3>Personal Portfolio</h3>
-                        <p>
-                            A responsive portfolio website built to present my profile, skills, projects and professional contact information.
-                        </p>
-                        <div class="tech-tags">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <div class="project-icon"><i class="fab fa-python"></i></div>
+                                <span class="project-number">02</span>
+                            </div>
+                            <h3>Rock Paper Scissors</h3>
+                            <p>A simple interactive game that demonstrates core programming concepts such as conditions, random choices and user interaction.</p>
+                            <div class="tech-tags">
+                                <span>Python</span>
+                                <span>Logic</span>
+                            </div>
                         </div>
-                        <a class="project-link" href="https://github.com/ANJANK9/Selfobia" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> View Source
-                        </a>
+                    </article>
+
+                    <article class="project-card reveal">
+                        <div class="project-preview preview-web" aria-hidden="true">
+                            <i class="fas fa-code"></i>
+                            <span>Responsive Portfolio</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <div class="project-icon"><i class="fas fa-code"></i></div>
+                                <span class="project-number">03</span>
+                            </div>
+                            <h3>Personal Portfolio</h3>
+                            <p>A responsive portfolio website built to present my profile, skills, projects and professional contact information.</p>
+                            <div class="tech-tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="project-actions">
+                                <a class="project-link" href="https://github.com/ANJANK9/Selfobia" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i> View Source
+                                </a>
+                            </div>
+                        </div>
                     </article>
                 </div>
             </div>
@@ -181,7 +257,7 @@
             <div class="max-width">
                 <div class="section-heading reveal">
                     <p class="section-kicker">WHAT I USE</p>
-                    <h2>Skills</h2>
+                    <h2>Skills &amp; Tech Stack</h2>
                     <p class="section-description">Technologies and tools I use while learning and building software projects.</p>
                 </div>
 
@@ -189,40 +265,40 @@
                     <article class="skill-group reveal">
                         <div class="skill-group-icon"><i class="fas fa-laptop-code"></i></div>
                         <h3>Frontend</h3>
-                        <div class="skill-list">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                            <span>React</span>
+                        <div class="skill-list icon-list">
+                            <span><i class="fab fa-html5"></i> HTML</span>
+                            <span><i class="fab fa-css3-alt"></i> CSS</span>
+                            <span><i class="fab fa-js"></i> JavaScript</span>
+                            <span><i class="fab fa-react"></i> React</span>
                         </div>
                     </article>
 
                     <article class="skill-group reveal">
                         <div class="skill-group-icon"><i class="fas fa-code"></i></div>
                         <h3>Programming</h3>
-                        <div class="skill-list">
-                            <span>Java</span>
-                            <span>Python</span>
-                            <span>JavaScript</span>
+                        <div class="skill-list icon-list">
+                            <span><i class="fab fa-java"></i> Java</span>
+                            <span><i class="fab fa-python"></i> Python</span>
+                            <span><i class="fab fa-js"></i> JavaScript</span>
                         </div>
                     </article>
 
                     <article class="skill-group reveal">
                         <div class="skill-group-icon"><i class="fas fa-database"></i></div>
                         <h3>Database</h3>
-                        <div class="skill-list">
-                            <span>MySQL</span>
-                            <span>SQL</span>
+                        <div class="skill-list icon-list">
+                            <span><i class="fas fa-database"></i> MySQL</span>
+                            <span><i class="fas fa-table"></i> SQL</span>
                         </div>
                     </article>
 
                     <article class="skill-group reveal">
                         <div class="skill-group-icon"><i class="fas fa-tools"></i></div>
                         <h3>Tools</h3>
-                        <div class="skill-list">
-                            <span>Git</span>
-                            <span>GitHub</span>
-                            <span>VS Code</span>
+                        <div class="skill-list icon-list">
+                            <span><i class="fab fa-git-alt"></i> Git</span>
+                            <span><i class="fab fa-github"></i> GitHub</span>
+                            <span><i class="fas fa-code"></i> VS Code</span>
                         </div>
                     </article>
                 </div>
@@ -235,6 +311,7 @@
                 <div class="section-heading reveal">
                     <p class="section-kicker">GET IN TOUCH</p>
                     <h2>Contact Me</h2>
+                    <p class="section-description">Have an opportunity, project or collaboration in mind? I'd be happy to connect.</p>
                 </div>
 
                 <div class="contact-wrap">
@@ -244,6 +321,13 @@
                         <p>
                             Feel free to contact me through email, LinkedIn or GitHub. I'm open to meaningful conversations about development, projects and career opportunities.
                         </p>
+
+                        <div class="contact-actions">
+                            <a class="btn btn-primary" href="mailto:anjankumar00025@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
+                            <button class="btn copy-email" type="button" data-email="anjankumar00025@gmail.com">
+                                <i class="far fa-copy"></i> <span>Copy Email</span>
+                            </button>
+                        </div>
                     </div>
 
                     <div class="contact-cards reveal">
@@ -280,7 +364,14 @@
     </main>
 
     <footer class="footer">
-        <p>&copy; <span id="year"></span> Anjan Kumar. Designed &amp; developed with care.</p>
+        <div class="footer-inner max-width">
+            <p>&copy; <span id="year"></span> Anjan Kumar. Built with HTML, CSS &amp; JavaScript.</p>
+            <div class="footer-socials" aria-label="Footer social links">
+                <a href="https://github.com/ANJANK9" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/anjan-kumar-858480199/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:anjankumar00025@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
